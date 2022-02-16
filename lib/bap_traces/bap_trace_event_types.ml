@@ -12,6 +12,7 @@ module Chunk = struct
   type t = {
     addr : addr;
     data : string;
+    encoding: string option;
   } [@@deriving bin_io, compare, fields, sexp]
 end
 

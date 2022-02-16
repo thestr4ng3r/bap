@@ -296,6 +296,7 @@ module Std : sig
     type t = {
       addr : addr;              (** an address of the first byte *)
       data : string;            (** the bytes *)
+      encoding : string option; (** the encoding to use for data if multiple are possible (e.g. thumb/non-thumb) *)
     } [@@deriving bin_io, compare, fields, sexp]
   end
 

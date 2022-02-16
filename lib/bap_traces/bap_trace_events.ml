@@ -41,7 +41,10 @@ end
 module Chunk = struct
   include Chunk
   let pp ppf t =
-    Format.fprintf ppf "@@%a: %a" Addr.pp t.addr pp_bytes t.data
+    Format.fprintf ppf "@@%a: %a" Addr.pp t.addr pp_bytes t.data;
+    match t.encoding with
+      | Some e -> Format.fprintf ppf "(%s)" e
+      | None -> ()
 end
 
 module Syscall = struct
